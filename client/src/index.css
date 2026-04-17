@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #B5E18B;
+  --color-primary-hover: #9FD172;
+  --color-secondary: #FFFFFF;
+  --color-background: #FAFAFA;
+  --color-card: #FFFFFF;
+  --color-border: #E5E5E5;
+  --color-text-primary: #171717;
+  --color-text-secondary: #737373;
+  --color-text-muted: #A3A3A3;
+  --color-accent: #3B82F6;
+  --color-error: #EF4444;
+  --color-success: #22C55E;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-text-primary;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ProseMirror {
+  @apply outline-none min-h-[300px];
+}
+
+.ProseMirror p {
+  @apply mb-4;
+}
+
+.ProseMirror h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.ProseMirror h2 {
+  @apply text-2xl font-semibold mb-3;
+}
+
+.ProseMirror h3 {
+  @apply text-xl font-semibold mb-2;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  @apply ml-6 mb-4;
+}
+
+.ProseMirror ul {
+  @apply list-disc;
+}
+
+.ProseMirror ol {
+  @apply list-decimal;
+}
+
+.ProseMirror blockquote {
+  @apply border-l-4 border-primary pl-4 italic my-4;
+}
+
+.ProseMirror pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg my-4 font-mono text-sm overflow-x-auto;
+}
+
+.ProseMirror code {
+  @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.ProseMirror img {
+  @apply max-w-full h-auto rounded-lg my-4;
+}
+
+.ProseMirror a {
+  @apply text-accent hover:underline;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-text-muted content-[attr(data-placeholder)] float-left h-0 pointer-events-none;
+}
