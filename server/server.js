@@ -13,7 +13,7 @@ const commentRoutes = require('./routes/comments');
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://blog-five-rho-30.vercel.app/',
   credentials: true
 }));
 app.use(express.json());
